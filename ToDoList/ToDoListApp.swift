@@ -1,9 +1,4 @@
-//
-//  ToDoListApp.swift
-//  ToDoList
-//
-//  Created by Vithushan Logan on 2023-03-24.
-//
+//MVVM - Model, View, ViewModel
 
 import SwiftUI
 
@@ -11,7 +6,10 @@ import SwiftUI
 struct ToDoListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ListView()
+            }
+           
         }
     }
 }
