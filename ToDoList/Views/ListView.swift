@@ -15,9 +15,11 @@ struct ListView: View {
         List {
             ForEach(items) { item in
                 ListRowView(Item:item)
-     
-                
             }
+            .onDelete(perform: deleteItem)
+            .onMove(perform: moveItem)
+            
+            
         }.navigationTitle("To-Do-List 🚀 ")
             .listStyle(PlainListStyle())
             .navigationBarItems(
@@ -27,7 +29,18 @@ struct ListView: View {
             )
             )
     }
+    
+    func deleteItem(indexSet: IndexSet){
+        items.remove(atOffsets: indexSet)
+    }
+    
+    func moveItem(from: IndexSet, to: Int){
+        items.move(fromOffsets: from, toOffset: to)
+    }
 }
+
+
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
